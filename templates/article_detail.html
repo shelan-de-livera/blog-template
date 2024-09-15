@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }} - Self Help Blog</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in article.comments %}
+        <li>{{ comment.content }} - {{ comment.author.email }} <a href="{{ url_for('like_comment', comment_id=comment.id) }}">Like</a></li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for('add_comment', article_id=article.id) }}" method="post">
+        <textarea name="content"></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
+</body>
+</html>

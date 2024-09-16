@@ -1,6 +1,7 @@
 Flask
 Flask-SQLAlchemy
 flask-dance
+Flask-Login
 OAuthlib
 requests
 google-auth
